@@ -3,7 +3,7 @@ name: MasterCI
 on:
   push:
     branches:
-      - main
+      - development
 
 jobs:
   build:
@@ -11,7 +11,7 @@ jobs:
     name: Build and Deploy
 
     steps:
-      - uses: actions/checkout@main
+      - uses: actions/checkout@development
 
       - name: Bucket actions
         uses: actions/setup-node@v1
@@ -22,7 +22,7 @@ jobs:
       - run: npm run generate
 
       - name: Publish
-        uses: nogsantos/scp-deploy@main
+        uses: nogsantos/scp-deploy@development
         with:
           src: ./dist/*
           host: ${{ secrets.SSH_HOST }}
