@@ -1,12 +1,32 @@
-name: A workflow for my Hello World file
-on: push
+name: MasterCI
+
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
-    name: Hello world action
     runs-on: ubuntu-latest
+    name: Build and Deploy
+
     steps:
-      - uses: actions/checkout@v1
-      - uses: ./action-a
+      - uses: actions/checkout@main
+
+      - name: Bucket actions
+        uses: actions/setup-node@v1
         with:
-          MY_NAME: "T Money"
+          node-version: 8
+      - run: npm i
+      - run: npm run test
+      - run: npm run generate
+
+      - name: Publish
+        uses: nogsantos/scp-deploy@main
+        with:
+          src: ./dist/*
+          host: ${{ secrets.SSH_HOST }}
+          remote: ${{ secrets.SSH_DIR }}
+          port: ${{ secrets.SSH_PORT }}
+          user: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
