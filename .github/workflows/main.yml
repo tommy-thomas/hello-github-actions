@@ -11,13 +11,15 @@ jobs:
     name: Build and Deploy
 
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
 
       - name: Bucket actions
         uses: actions/setup-node@v1
         with:
-          node-version: 8
+          node-version: 12.x
+      - run: git config --global url."https://${{ secrets.PAT }}@github.com/".insteadOf ssh://git@github.com/
       - run: npm i
+      - run: npm run test
       - run: npm run generate
 
       - name: Publish
