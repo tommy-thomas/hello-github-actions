@@ -1,0 +1,23 @@
+{
+  "name": "hello-github-actions",
+  "version": "1.0.0",
+  "description": "Sandbox repo for action based deployments.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tommy-thomas/hello-github-actions.git"
+  },
+  "keywords": [
+    "Auto",
+    "deployments."
+  ],
+  "author": "tommyt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tommy-thomas/hello-github-actions/issues"
+  },
+  "homepage": "https://github.com/tommy-thomas/hello-github-actions#readme"
+}
