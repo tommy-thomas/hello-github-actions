@@ -15,8 +15,8 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Bucket actions
-        uses: actions/setup-node@v1
+
+      - uses: actions/setup-node@v1
         with:
           node-version: 12.x
       - run: git config --global url."https://${{ secrets.PAT }}@github.com/".insteadOf ssh://git@github.com/
