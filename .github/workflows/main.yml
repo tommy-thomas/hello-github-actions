@@ -18,6 +18,8 @@ jobs:
         with:
           node-version: 8
       - run: npm i
+      - run: npm install --global generate
+      - run: npm run generate
 
       - name: Publish
         uses: ./ssh-scp-deploy
