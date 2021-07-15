@@ -8,8 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build and Deploy
-
       # Service containers to run with `runner-job`
       services:
         # Label used to access the service container
@@ -20,6 +18,8 @@ jobs:
           ports:
             # Opens tcp port 6379 on the host and service container
             - 6379:6379
+
+    name: Build and Deploy
 
     steps:
       - uses: actions/checkout@master
