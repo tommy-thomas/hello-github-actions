@@ -12,6 +12,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      with:
+         persist-credentials: false
 
       - name: Bucket actions
         uses: actions/setup-node@v1
