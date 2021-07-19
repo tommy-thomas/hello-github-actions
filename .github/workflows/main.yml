@@ -20,7 +20,7 @@ jobs:
       - run: npm i
       - run: npm install --global generate
 
-      - name: Publish
+      - name: Deploy
         uses: ./ssh-scp-deploy
         with:
           src: ./dist/*
